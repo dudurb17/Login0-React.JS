@@ -5,7 +5,7 @@ import Singup from "../pages/Singup";
 import Signin from "../pages/Signin";
 
 const Private = ({ Item }) => {
-  const signed = false;
+  const signed = true;
   return signed > 0 ? <Item /> : <Signin />;
 };
 
