@@ -50,6 +50,19 @@ export const AuthProvider = ({ children }) => {
       newUser = [{ email, password }];
     }
     localStorage.setItem("users_db", JSON.stringify(newUser));
+    return;
   };
-  return <AuthContext.Provider>{children}</AuthContext.Provider>;
+
+  const signout = () => {
+    setUser(null);
+    localStorage.removeItem("user_token");
+  };
+
+  return (
+    <AuthContext.Provider
+      value={{ user, signed: !!user, signin, signup, signout }}
+    >
+      {children}
+    </AuthContext.Provider>
+  );
 };
