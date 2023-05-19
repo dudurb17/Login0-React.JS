@@ -17,6 +17,12 @@ const Signin = () => {
       setError("Preencha todos os campos");
       return;
     }
+    const res = signin(email, senha);
+    if (res) {
+      setError(res);
+      return;
+    }
+    navigate("/home");
   };
 
   return (
