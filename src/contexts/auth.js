@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { JSON } from "react-router-dom";
 
 export const AuthContext = createContext({});
 
@@ -23,8 +24,14 @@ export const AuthProvider = ({ children }) => {
     if (hasUser?.length) {
       if (hasUser[0].email === email && hasUser.password === password) {
         const token = Math.random().toString(36).substring(2);
-        localStorage.setItem("");
+        localStorage.setItem("user_token", JSON.stringify({ email, token }));
+        setUser({ email, password });
+        return;
+      } else {
+        return "E-mail ou senha incorretos";
       }
+    } else {
+      return "Usuário não cadastrado";
     }
   };
   return <AuthContext.Provider>{children}</AuthContext.Provider>;
