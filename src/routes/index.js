@@ -7,7 +7,7 @@ import useAuth from "../hooks/useAuth";
 
 const Private = ({ Item }) => {
   const { signed } = useAuth();
-  return signed > 0 ? <Item /> : <Signin />;
+  return signed > 0 ? <Singup /> : <Signin />;
 };
 
 const RoutesApp = () => {
@@ -17,7 +17,7 @@ const RoutesApp = () => {
         <Routes>
           <Route exact path="/Home" element={<Private Item={Home} />} />
           <Route path="/" element={<Signin />} />
-          <Route exact path="/signup" element={<Singup />} />
+          <Route exact path="/singup" element={<Singup />} />
           <Route path="*" element={<Signin />} />
         </Routes>
       </Fragment>

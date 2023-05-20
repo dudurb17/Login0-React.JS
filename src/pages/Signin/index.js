@@ -22,7 +22,7 @@ const Signin = () => {
       setError(res);
       return;
     }
-    navigate("/home");
+    navigate("/Home");
   };
 
   return (
@@ -46,7 +46,7 @@ const Signin = () => {
         <C.LabelSignup>
           Não tem uma conta?
           <C.Strong>
-            <Link to="/singup">&nbsp; Registre-se</Link>
+            <Link to="/signin">&nbsp; Registre-se</Link>
           </C.Strong>
         </C.LabelSignup>
       </C.Content>
